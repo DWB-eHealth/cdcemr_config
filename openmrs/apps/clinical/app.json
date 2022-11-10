@@ -1,0 +1,51 @@
+{
+    "id": "bahmni.clinical",
+    "extensionPoints": [
+        {
+            "id": "org.bahmni.clinical.consultation.board",
+            "description": "Bahmni Clinical Consultation Page"
+        },
+        {
+            "id": "org.bahmni.clinical.conceptSetGroup.*",
+            "description": "Define conceptsets part of a conceptset group"
+        },
+        {
+            "id": "org.bahmni.patient.search",
+            "description": "Bahmni Patient search, lookups Page"
+        }
+    ],
+    "contextModel": [
+        "patientUuid",
+        "visitUuid"
+    ],
+    "config": {
+        "quickPrints":false,
+        "networkConnectivity" : {
+            "showNetworkStatusMessage": true,
+            "networkStatusCheckInterval": 20000,
+            "locales" : [
+                { "locale" : "fr", "css" : "offline-language-french"},
+                { "locale" : "es", "css": "offline-language-spanish"},
+                { "locale" : "pt", "css": "offline-language-portuguese-brazil"}
+            ]
+        },
+        "obsIgnoreList": [
+        ],
+        "allowConsultationWhenNoOpenVisit": false,
+        "defaultVisitType": "General",
+        "visitTypeForRetrospectiveEntries": "General",
+        "maxConceptSetLevels": 3,
+        "allowOnlyCodedDiagnosis": false,
+        "conceptSetUI": {},
+        "visitPage": {
+            "observationDisplay": {
+                "conceptNames": []
+            }
+        },
+        "patientSearch": {
+            "debounceSearch": false,
+            "fetchDelay": 2000,
+            "serializeSearch": false
+        }
+    }
+}

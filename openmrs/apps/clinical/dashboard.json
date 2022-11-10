@@ -1,0 +1,169 @@
+{
+  "general": {
+    "translationKey": "DASHBOARD_TAB_GENERAL_KEY",
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patientInformation": {
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+        "type": "patientInformation",
+        "displayOrder": 0,
+        "ageLimit": 100,
+        "patientAttributes": [],
+        "addressFields": [
+          "address1",
+          "address2",
+          "cityVillage",
+          "countyDistrict"
+        ]
+      },
+      "NCDforms2": {
+        "type": "formsV2",
+        "displayOrder": 7,
+        "dashboardConfig": {
+          "title": null,
+          "maximumNoOfVisits": 1
+        },
+        "formGroup": ["NCD"],
+        "translationKey": "DASHBOARD_TITLE_NCD_DISPLAY_EDIT_FORMS2_FORMS"
+      },
+      "MHforms2": {
+        "type": "formsV2",
+        "displayOrder": 4,
+        "dashboardConfig": {
+          "title": null,
+          "maximumNoOfVisits": 1
+        },
+        "formGroup": ["Mental Health Intake", "Psy Counselors Initial Assessment", "Psychiatrist mhGAP Initial Assessment", "Psy Counselors Follow up", "Psychiatrist mhGAP Follow up", "Mental Health Discharge"],
+        "translationKey": "DASHBOARD_TITLE_MH_DISPLAY_EDIT_FORMS2_FORMS"
+      },
+      "Hepforms2": {
+        "type": "formsV2",
+        "displayOrder": 5,
+        "dashboardConfig": {
+          "title": null,
+          "maximumNoOfVisits": 1
+        },
+        "formGroup": ["Hepatitis C"],
+        "translationKey": "DASHBOARD_TITLE_HEP_DISPLAY_EDIT_FORMS2_FORMS"
+      },
+      "Labforms2": {
+        "type": "formsV2",
+        "displayOrder": 6,
+        "dashboardConfig": {
+          "title": null,
+          "maximumNoOfVisits": 1
+        },
+        "formGroup": ["Vitals and Laboratory Information"],
+        "translationKey": "DASHBOARD_TITLE_LAB_DISPLAY_EDIT_FORMS2_FORMS"
+      },
+      "diagnosis": {
+        "translationKey": "DASHBOARD_TITLE_DIAGNOSIS_KEY",
+        "type": "diagnosis",
+        "showCertainty": true,
+        "isObservation": true,
+        "showOrder": true,
+        "showDetailsButton": false,
+        "displayOrder": 3,
+       "dashboardConfig": {
+          "conceptNames": [
+            "MH, Main diagnosis",
+            "MH, Secondary diagnosis",
+            "NCD, Diagnosis",
+            "HCV RNA PCR qualitative result",
+            "HIV enzyme immunoassay, qualitative",
+            "Hepatitis B Virus surface antigen"
+          ],
+          "showDetailsButton": true,
+          "numberOfVisits": 1
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+           "MH, Main diagnosis",
+           "MH, Secondary diagnosis",
+           "NCD, Diagnosis",
+           "HCV RNA PCR qualitative result",
+           "HIV enzyme immunoassay, qualitative",
+           "Hepatitis B Virus surface antigen"
+
+          ],
+          "numberOfVisits": 1,
+          "scope": "latest",
+          "showDetailsButton": true,
+          "pivotTable": {}
+        }
+      },
+      "navigationLinksControl": {
+        "translationKey": "DASHBOARD_TITLE_NAVIGATION_LINKS_CONTROL_KEY",
+        "type": "navigationLinksControl",
+        "displayOrder": 1,
+        "showLinks": [
+          "home",
+          "registration"
+        ]
+      },
+      "patientVitals": {
+        "translationKey": "DASHBOARD_TITLE_PATIENT_VITALS_KEY",
+        "type": "vitals",
+        "isObservation": true,
+        "displayOrder": 1,
+        "dashboardConfig": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "Body Mass Index",
+            "Systolic blood pressure (mmHg)",
+            "Diastolic blood pressure (mmHg)"
+          ],
+          "showDetailsButton": true,
+          "numberOfVisits": 1
+        },
+        "expandedViewConfig": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "Body Mass Index",
+            "Systolic blood pressure (mmHg)",
+            "Diastolic blood pressure (mmHg)"
+          ],
+          "numberOfVisits": 1,
+          "scope": "latest",
+          "showDetailsButton": true,
+          "pivotTable": {}
+        }
+      },
+       "treatment": {
+       "title": "Treatments",
+       "type": "treatment",
+       "displayOrder": 9,
+       "dashboardConfig": { 
+         "showFlowSheet": false,
+         "showListView": true,
+         "showRoute": false,
+         "showDrugForm": false,
+         "numberOfVisits": 1,
+         "showOtherActive": true,
+         "showDetailsButton": false
+ },
+      "expandedViewConfig": {
+       "title": "Treatments",
+       "showFlowSheet": false,
+       "showListView": true,
+       "showRoute": true,
+       "showDrugForm": true,
+       "numberOfVisits": 1,
+       "showOtherActive": true,
+       "showDetailsButton": true
+ }
+},
+      "patientAppointments": {
+        "type": "custom",
+        "displayOrder": 10,
+        "config": {
+          "title": "DASHBOARD_TITLE_APPOINTMENTS_KEY",
+          "template": "<patient-appointments-dashboard section='config' patient='patient'></patient-appointments-dashboard>"
+        }
+      }
+    }
+  }
+}

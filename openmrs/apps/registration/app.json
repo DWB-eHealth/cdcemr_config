@@ -1,0 +1,137 @@
+{
+        "id": "bahmni.registration",
+        "instanceOf":"bahmni.template.registration",
+        "description": "Bahmni Patient Registration App",
+        "extensionPoints": [
+            {
+                "id": "org.bahmni.registration.patient.search.result.action",
+                "description": "Bahmni Patient Search Result Action"
+            },
+            {
+                "id": "org.bahmni.registration.patient.next",
+                "description": "After Bahmni Patient Registration, forward url configuration"
+            },
+            {
+                "id": "org.bahmni.registration.navigation",
+                "description": "Navigation within regsitration first and second page"
+            },
+            {
+                "id": "org.bahmni.registration.conceptSetGroup.observations",
+                "description": "Registration Second Page Forms"
+            }
+        ],
+        "contextModel": [
+            "patientUuid",
+            "activeVisitUuid"
+        ],
+        "config" : {
+                "forwardUrlsForVisitTypes": [
+               {
+                   "visitType": "General",
+                   "forwardUrl": "../clinical/index.html#/default/patient/{{patientUuid}}/dashboard?currentTab=DASHBOARD_TAB_GENERAL_KEY",
+                   "translationKey": "Go to patient dashboard",
+                   "shortcutKey": "c"
+               }
+             ],
+                "mandatoryPersonAttributes" : [
+            ],
+            "patientInformation": {
+                "addressInformation" : {
+                    "title" : "Address Information",
+                    "translationKey": "REGISTRATION_ADDRESS_INFORMATION",
+                    "attributes" : [
+                      "patientAddress",
+                      "patientCity",
+                      "patientState",
+                      "patientDistrict"
+                    ],
+                   "expanded" : true,
+                   "order" : 1
+                },
+                "patientStatus" : {
+                    "title" : "Patient Status",
+                    "translationKey" : "REGISTRATION_PATIENT_STATUS",
+                    "attributes" : [
+                      "Legal Status"
+                     ],
+                   "expanded": true,
+                   "order" : 2 
+               },
+                "patientContactDetails" : {
+                    "title" : "Patient Contact Details",
+                    "translationKey": "REGISTRATION_PATIENT_CONTACT_DETAILS",
+                    "attributes" : [
+                      "patientPhoneNumber1",
+                      "patientPhoneNumber2"
+                     ],
+                    "order" : 3,
+                    "expanded" : true
+               },
+                "secondaryContactDetails" : { 
+                    "title" : "Secondary Contact Details",
+                    "translationKey": "REGISTRATION_SECONDARY_CONTACT_DETAILS",
+                    "attributes" : [ 
+                      "secondaryContactName", 
+                      "secondaryContactPhoneNumber" 
+                     ],
+                    "order" : 4,
+                    "expanded" : true
+               },
+                "patientInformationDetails" : {
+                    "title" : "Patient Information Details",
+                    "translationKey": "REGISTRATION_PATIENT_INFORMATION_DETAILS",
+                    "attributes" : [
+                      "Civil status",
+                      "Legal status",
+                      "Education level",
+                      "Occupation",
+                      "Personal Situation",
+                      "Living conditions"
+                     ],
+                    "order" : 5,
+                    "expanded" : true
+               },
+                "hidden": {
+                    "attributes": [
+                        "email",
+                        "patientAddressLine2"
+                    ]
+                },
+                "defaults":  {
+                }
+            },
+            "addressHierarchy": {
+                "showAddressFieldsTopDown": false,
+                "strictAutocompleteFromLevel": "stateProvince"
+            },
+            "relationshipTypeMap": {
+                "Doctor":"provider",
+                "Parent":"patient"
+            },
+            "dobMandatory": true,
+            "disablePhotoCapture": true,
+            "defaultIdentifierPrefix": "MSF_",
+            "defaultVisitType": "General",
+            "searchByIdForwardUrl": "/patient/{{patientUuid}}",
+            "showMiddleName": true,
+            "showLastName": true,
+            "isLastNameMandatory": true,
+            "patientNameDisplayOrder": ["firstName", "lastName"],
+            "showSaveConfirmDialog": false,
+            "showBirthTime": false,
+            "showEnterID": false,
+            "fieldValidation" : {
+                "familyName" : {"pattern" : "^[a-zA-Z-'_ éèà ]{1,50}$.*$","errorMessage" : "Should not exceed 50 characters"},
+                "givenName" : {"pattern" : "^[a-zA-Z-'_ éèà ]{1,50}$.*$",  "errorMessage" : "Should not exceed 50 characters"},
+                "patientAddress": {"pattern" : "^.{0,250}$", "errorMessage" : "Should not exceed 250 characters"},
+                "patientAddressLine2": {"pattern" : "^.{0,250}$", "errorMessage" : "Should not exceed 250 characters"},
+                "patientCity": {"pattern" : "^.{0,50}$", "errorMessage" : "Should not exceed 50 characters"},
+                "patientState": {"pattern" : "^.{0,50}$", "errorMessage" : "Should not exceed 50 characters"},
+                "patientDistrict": {"pattern" : "^.{0,50}$", "errorMessage" : "Should not exceed 50 characters"},
+                "patientPhoneNumber1" :{"pattern" : "[+0-9]{0,}","errorMessage" : "Should only contain numbers and '+' "},
+                "patientPhoneNumber2" :{"pattern" : "[+0-9]{0,}","errorMessage" : "Should only contain numbers and '+' "},
+                "secondaryContactName" : {"pattern" : "^[a-zA-Z-'_ ]{1,50}$.*$",  "errorMessage" : "Should not exceed 50 characters"},
+                "secondaryContactPhoneNumber" :{"pattern" : "[+0-9]{0,}","errorMessage" : "Should only contain numbers and '+' "}
+            }
+        }
+}

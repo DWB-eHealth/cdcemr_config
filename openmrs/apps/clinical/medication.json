@@ -1,0 +1,43 @@
+{
+  "commonConfig": {
+  },
+  "tabConfig": {
+    "allMedicationTabConfig": {
+      "orderSet": {
+        "calculateDoseOnlyOnCurrentVisitValues": false
+      },
+      "inputOptionsConfig": {
+        "allowOnlyCodedDrugs": false,
+        "isDropDown": false,
+        "hiddenFields": [
+         "dosingInstructions",
+         "quantity",
+         "quantityUnits",
+         "sos",
+         "dosingTypeUnit"
+ 
+        ],
+        "defaultDurationUnit": "Day(s)",
+        "hideOrderSet" : true,
+        "defaultInstructions": "As directed",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ]
+        }
+      }
+    }
+}
